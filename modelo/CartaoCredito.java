@@ -3,25 +3,31 @@ package modelo;
 import java.math.BigDecimal;
 
 public class CartaoCredito {
+
     private BigDecimal limiteDisponivel;
 
     public CartaoCredito(BigDecimal limiteDisponivel) {
-        this.limiteDisponivel = limiteDisponivel;
+        setLimiteDisponivel(limiteDisponivel);
     }
 
-    public void calcularLimite(BigDecimal valorGasto){
-        limiteDisponivel = limiteDisponivel.subtract(valorGasto);
+    public void setLimiteDisponivel(BigDecimal limiteDisponivel) {
+        if (limiteDisponivel.compareTo(BigDecimal.ZERO) >= 0){
+            this.limiteDisponivel = limiteDisponivel;
+        } else {
+            throw new IllegalArgumentException("O valor do limite cartão não pode ser negativo!");
+        }
     }
 
-    // TODO: Implementar o validador do limite do cartão de crédito, não pode ser negativo
-//    public void validaLimite(){
-
-//    }
-
-
+    public BigDecimal getLimiteDisponivel() {
+        return limiteDisponivel;
+    }
 
     @Override
     public String toString() {
         return String.valueOf(limiteDisponivel);
+    }
+
+    public void calcularLimite(BigDecimal valorGasto){
+        limiteDisponivel = limiteDisponivel.subtract(valorGasto);
     }
 }
