@@ -1,0 +1,86 @@
+Você vai informar qual o limite do seu cartão de crédito e realizar compras até não desejar mais ou até o limite ser atingido.
+_______________________________________
+Digite o limite do cartão: 1000
+_______________________________________
+
+
+Após teclarmos "Enter", ele solicita uma descrição da compra.
+_______________________________________
+Digite a descrição da compra: sapato
+_______________________________________
+
+
+E depois disso ele vai pedir:
+_______________________________________
+Digite o valor da compra: 150
+_______________________________________
+
+
+Quando teclamos "Enter", obtemos:
+_______________________________________
+Compra realizada!
+
+Digite 0 para sair ou 1 para continuar
+_______________________________________
+
+
+Vamos continuar para realizar a compra de um armário ultrapassando o limite. Preenchemos:
+_______________________________________
+Digite a descrição da compra: armários
+Digite o valor da compra: 900
+_______________________________________
+
+
+Como retorno, obtemos:
+_______________________________________
+Saldo insuficiente!
+
+COMPRAS REALIZADAS:
+sapato - 150.0
+Saldo do cartão: 850.0
+_______________________________________
+
+
+Ele nos informa que o saldo que temos disponível é insuficiente, e exibe as compras que fizemos e o saldo disponível.
+
+========================================================================================================================
+A outra ideia é que ao finalizar a compra com limite disponível, que as compras sejam exibidas por ordem de valor
+e não na ordem lançada na lista. Assim, precisamos usar algum recurso de ordenação para realizar isso.
+
+
+Preenchemos as perguntas com os seguintes valores e informações:
+_______________________________________
+Digite o limite do cartão: 1000
+_______________________________________
+
+E fazemos as compras:
+_______________________________________
+Digite a descrição da compra: sapato
+Digite o valor da compra: 50
+_______________________________________
+
+Após isso, será exibida a mensagem de compra realizada e se desejamos sair ou continuar.
+No caso, digitamos o número um para continuar. Preenchemos novamente:
+_______________________________________
+Digite a descrição da compra: camisa
+Digite o valor da compra: 15
+_______________________________________
+
+Mais uma vez digitamos o número um para continuar e escrevemos:
+_______________________________________
+Digite a descrição da compra: calça
+Digite o valor da compra: 30
+_______________________________________
+
+Agora, digitamos o número zero para sair. Como retorno, obtemos:
+_______________________________________
+COMPRAS REALIZADAS:
+
+camisa - 15.0
+calça - 30.0
+sapato - 50.0
+
+Saldo do cartão: 905.0
+_______________________________________
+
+Foi exibido na ordem de valor. A ideia é você realizar esse tipo de desafio.
