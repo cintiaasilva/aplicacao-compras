@@ -1,6 +1,7 @@
 package modelo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class CartaoCredito {
 
@@ -12,7 +13,7 @@ public class CartaoCredito {
 
     public void setLimiteDisponivel(BigDecimal limiteDisponivel) {
         if (limiteDisponivel.compareTo(BigDecimal.ZERO) >= 0){
-            this.limiteDisponivel = limiteDisponivel;
+            this.limiteDisponivel = limiteDisponivel.setScale(2, RoundingMode.UNNECESSARY);
         } else {
             throw new IllegalArgumentException("O valor do limite cartão não pode ser negativo!");
         }
