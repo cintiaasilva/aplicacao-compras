@@ -28,7 +28,7 @@ public class CartaoCredito {
         return String.valueOf(limiteDisponivel);
     }
 
-    public void calcularLimite(BigDecimal valorGasto){
-        limiteDisponivel = limiteDisponivel.subtract(valorGasto);
+    public BigDecimal calcularLimite(BigDecimal valorGasto){
+        return limiteDisponivel = limiteDisponivel.subtract(valorGasto);
     }
 }

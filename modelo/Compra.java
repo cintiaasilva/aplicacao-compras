@@ -3,23 +3,26 @@ package modelo;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Compra {
+public class Compra implements Comparable<Compra>{
 
     private String descricaoCompra;
     private BigDecimal valorCompra;
 
     public Compra(String descricaoCompra, BigDecimal valorCompra) {
-        this.descricaoCompra = descricaoCompra;
+        setDescricaoCompra(descricaoCompra);
         setValorCompra(valorCompra);
     }
 
-    @Override
-    public String toString() {
-        return descricaoCompra + ", " + valorCompra;
+    public Compra() {
+
     }
 
     public void setDescricaoCompra(String descricaoCompra) {
-        this.descricaoCompra = descricaoCompra;
+        if (!descricaoCompra.isBlank()){
+            this.descricaoCompra = descricaoCompra;
+        }else{
+            throw new IllegalArgumentException("Precisa da descrição da compra");
+        }
     }
 
     public void setValorCompra(BigDecimal valorCompra) {
@@ -30,11 +33,17 @@ public class Compra {
         }
     }
 
-    public String getDescricaoCompra() {
-        return descricaoCompra;
-    }
-
     public BigDecimal getValorCompra() {
         return valorCompra;
+    }
+
+    @Override
+    public String toString() {
+        return descricaoCompra + " - " + valorCompra;
+    }
+
+    @Override
+    public int compareTo(Compra compra) {
+        return this.getValorCompra().compareTo(compra.getValorCompra());
     }
 }
