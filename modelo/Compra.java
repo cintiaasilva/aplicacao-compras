@@ -27,7 +27,7 @@ public class Compra implements Comparable<Compra>{
 
     public void setValorCompra(BigDecimal valorCompra) {
         if (valorCompra.compareTo(BigDecimal.ZERO) >= 0){
-            this.valorCompra = valorCompra.setScale(2, RoundingMode.UNNECESSARY);
+            this.valorCompra = valorCompra.setScale(2, RoundingMode.HALF_UP );
         } else {
             throw new IllegalArgumentException("O valor da compra não pode ser negativo!");
         }

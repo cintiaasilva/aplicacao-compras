@@ -13,7 +13,7 @@ public class CartaoCredito {
 
     public void setLimiteDisponivel(BigDecimal limiteDisponivel) {
         if (limiteDisponivel.compareTo(BigDecimal.ZERO) >= 0){
-            this.limiteDisponivel = limiteDisponivel.setScale(2, RoundingMode.UNNECESSARY);
+            this.limiteDisponivel = limiteDisponivel.setScale(2, RoundingMode.HALF_UP);
         } else {
             throw new IllegalArgumentException("O valor do limite cartão não pode ser negativo!");
         }
