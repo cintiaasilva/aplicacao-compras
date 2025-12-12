@@ -27,7 +27,6 @@ public class AplicandoCompra {
                 adicionarCompraNaListaEOrdena(primeiraCompra);
                 limiteAtualizado = atualizarLimite(primeiraCompra);
                 System.out.println(retornarRespostas(0));
-                menu();
             }
 
             else {
@@ -44,7 +43,6 @@ public class AplicandoCompra {
                 adicionarCompraNaListaEOrdena(proximasCompras);
                 limiteAtualizado = atualizarLimite(proximasCompras);
                 System.out.println(retornarRespostas(0));
-                menu();
             }
         }
     }
@@ -70,25 +68,41 @@ public class AplicandoCompra {
 
 
     public void menu() {
-        System.out.println("Digite 0 para sair ou 1 para continuar");
-        try {
-            byte opcao = entradaDados.nextByte();
+        listarCompras();
+        byte opcao;
+        boolean continuar = true;
 
-            switch (opcao){
-                case 0:
-                    System.out.println(retornarRespostas(1));
-                    break;
-                case 1:
-                    listarCompras();
-                    break;
-                default:
-                    System.out.println("Não existe esta opção no menu!");
-                    break;
+        while (continuar) {
+            System.out.println("\n-------------------------------------------");
+            System.out.println("Digite 0 para sair ou 1 para continuar comprando");
+
+            try {
+                if (entradaDados.hasNextByte()) {
+                    opcao = entradaDados.nextByte();
+                    entradaDados.nextLine();
+                } else {
+                    System.out.println("Entrada inválida. Digite 0 ou 1.");
+                    entradaDados.nextLine();
+                    continue;
+                }
+
+                switch (opcao) {
+                    case 0:
+                        System.out.println(retornarRespostas(1));
+                        continuar = false;
+                        break;
+                    case 1:
+                        listarCompras();
+                        break;
+                    default:
+                        System.out.println("Não existe esta opção no menu! Tente novamente.");
+                        break;
+                }
+            } catch (InputMismatchException exception) {
+                System.out.println("Erro: Só é permitido entradas de números inteiros");
+                entradaDados.nextLine();
             }
-        }catch (InputMismatchException exception){
-            System.out.println("Erro: Só é permitido entradas de números inteiros");
         }
-
     }
 
     public String retornarRespostas(int opcaoRetorno){
